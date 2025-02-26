@@ -1,20 +1,27 @@
+"use client"
+
+import { CardLayout } from '@/components/Layout/Card';
 import { Sidebar } from '@/components/Layout/Sidebar';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { cookies } from 'next/headers';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default async function HomePage() {
-    const cookieStore = await cookies();
-    const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
+export default function HomePage() {
+    const [activeMenu, setActiveMenu] = useState("Chats");
 
+    const handleMenuItemClick = (menu: string) => {
+        setActiveMenu(menu);
+    };
+    
     return (
         <div>
-            <SidebarProvider defaultOpen={defaultOpen}>
-                <Sidebar />
+            <SidebarProvider>
+                <Sidebar onMenuItemClick={handleMenuItemClick} activeMenu={activeMenu}/>
                 <main>
                     <SidebarTrigger />
-                    <h1>Welcome to the Home Page</h1>
                 </main>
+                <div className="flex-1 p-4">
+                    {activeMenu === "Chats" ? <CardLayout /> : <div>Select a menu item</div>}
+                </div>
             </SidebarProvider>
         </div>
     );
