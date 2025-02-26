@@ -53,7 +53,7 @@ export const AuthForm = () => {
 
       if (!response.ok) throw new Error("Authentication failed")
 
-      router.push("/chat")
+      router.push("/")
     } catch (error) {
       console.error('Auth error', error)
     }
