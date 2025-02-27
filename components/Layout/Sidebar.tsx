@@ -51,7 +51,7 @@ export function Sidebar({ onMenuItemClick, activeMenu }: SidebarProps) {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={activeMenu === item.title}>
-                    {item.title === "Chats" ? (
+                    {item.title === "Chats" || item.title === "Friends" ? (
                       <a
                         href={item.url}
                         onClick={(e) => {
