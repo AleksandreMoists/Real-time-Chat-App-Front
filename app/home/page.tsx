@@ -5,12 +5,13 @@ import { CardLayout } from '@/components/Layout/Card';
 import { Sidebar } from '@/components/Layout/Sidebar';
 import { Button } from '@/components/ui/button';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import React, { useState, useEffect } from 'react';
+import { Switch } from '@/components/ui/switch';
+import { BellRing } from 'lucide-react';
+import React, { useState } from 'react';
 
 export default function HomePage() {
     const [activeMenu, setActiveMenu] = useState("Chats");
     
-    // Data for different sections
     const chatsItems = [
       { title: "Aleksandre Moistsrapishvili", online: "1 hour ago" },
       { title: "Test Test", online: "1 hour ago" },
@@ -61,6 +62,7 @@ export default function HomePage() {
               <CardLayout
                 title="Friends"
                 description="Manage your friends list."
+                addFriend={true}
                 items={friendsItems}
                 renderItem={(item, index) => (
                   <div
@@ -87,22 +89,33 @@ export default function HomePage() {
                 title="Settings"
                 description="Adjust your preferences."
                 items={settingsItems}
-                addFriend={true}
                 renderItem={(item, index) => (
-                  <div
-                    key={index}
-                    className="mb-4 w-full p-4 rounded-lg transition hover:bg-gray-100 dark:hover:bg-gray-800"
-                  >
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">{item.option}</p>
-                      <p className="text-xs text-muted-foreground">{item.description}</p>
+                  <div key={index} className="flex-1 space-y-1">
+                    <div className="mb-4 w-full p-4 rounded-lg transition hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer">
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium">{item.option}</p>
+                        <p className="text-xs text-muted-foreground">{item.description}</p>
+                      </div>
                     </div>
                   </div>
                 )}
-              />
+              >
+                <div className="flex items-center space-x-4 rounded-md border p-4">
+                  <BellRing />
+                  <div className="flex-1 space-y-1">
+                    <p className="text-sm font-medium leading-none">
+                      Push Notifications
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Send notifications to device.
+                    </p>
+                  </div>
+                  <Switch />
+                </div>
+              </CardLayout>
             )}
           </div>
         </SidebarProvider>
       </div>
     );
-  }
+};

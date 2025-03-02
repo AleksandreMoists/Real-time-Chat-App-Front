@@ -17,11 +17,12 @@ type CardProps = React.ComponentProps<typeof Card> & {
   items?: any[];
   addFriend?: boolean;
   renderItem?: (item: any, index: number) => React.ReactNode;
+  children?: React.ReactNode;
 }
 
-export function CardLayout({ className, title, description, items, renderItem, addFriend=false, ...props }: CardProps) {
+export function CardLayout({ className, title, description, items, renderItem, addFriend=false, children, ...props }: CardProps) {
   return (
-    <Card className={cn("w-[380px] h-[80%] mt-6 bg-gray-50", className)} {...props}>
+    <Card className={cn("w-[380px] max-w-full h-auto mt-6 bg-gray-50", className)} {...props}>
       <CardHeader>
       <div className="flex justify-between items-center">
         <CardTitle>{title}</CardTitle>
@@ -40,8 +41,9 @@ export function CardLayout({ className, title, description, items, renderItem, a
             renderItem ? renderItem(item, index) : null
           ))}
         </div>
+        
+          {children}
       </CardContent>
-
     </Card>
   )
 }

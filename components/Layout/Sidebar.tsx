@@ -19,7 +19,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 const items = [
   {
     title: "Chats",
-    url: "/chat",
+    url: "#",
     icon: MessageSquare,
   },
   {
@@ -51,7 +51,7 @@ export function Sidebar({ onMenuItemClick, activeMenu }: SidebarProps) {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={activeMenu === item.title}>
-                    {item.title === "Chats" || item.title === "Friends" ? (
+                    {item.title === "Chats" || item.title === "Friends" || item.title === "Settings" ? (
                       <a
                         href={item.url}
                         onClick={(e) => {
