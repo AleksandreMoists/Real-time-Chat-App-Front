@@ -1,6 +1,7 @@
 "app/home/page.tsx"
 "use client"
 
+import { ChatSection } from '@/components/Chat/ChatSection';
 import { CardLayout } from '@/components/Layout/Card';
 import { Sidebar } from '@/components/Layout/Sidebar';
 import { Button } from '@/components/ui/button';
@@ -8,15 +9,10 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Switch } from '@/components/ui/switch';
 import { BellRing } from 'lucide-react';
 import React, { useState } from 'react';
+import { chatsItems } from '@/lib/data';
 
 export default function HomePage() {
     const [activeMenu, setActiveMenu] = useState("Chats");
-    
-    const chatsItems = [
-      { title: "Aleksandre Moistsrapishvili", online: "1 hour ago" },
-      { title: "Test Test", online: "1 hour ago" },
-      { title: "Test 2", online: "2 hours ago" },
-    ];
   
     const friendsItems = [
       { name: "Friend 1", status: "Online" },
@@ -36,27 +32,7 @@ export default function HomePage() {
             <SidebarTrigger />
           </main>
           <div className="flex-1 p-4">
-            {activeMenu === "Chats" && (
-              <CardLayout
-                title="Conversations"
-                description="You have 3 unread messages."
-                items={chatsItems}
-                renderItem={(item, index) => (
-                  <Button
-                    key={index}
-                    variant="ghost"
-                    className="mb-4 w-full justify-start grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0 rounded-lg transition hover:bg-gray-100 dark:hover:bg-gray-800"
-                    onClick={() => console.log(`Clicked on: ${item.title}`)}
-                  >
-                    <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
-                    <div className="space-y-1 text-left w-full">
-                      <p className="text-sm font-medium leading-none">{item.title}</p>
-                      <p className="text-xs text-muted-foreground">{item.online}</p>
-                    </div>
-                  </Button>
-                )}
-              />
-            )}
+          {activeMenu === "Chats" && <ChatSection chats={chatsItems} />}
   
             {activeMenu === "Friends" && (
               <CardLayout
