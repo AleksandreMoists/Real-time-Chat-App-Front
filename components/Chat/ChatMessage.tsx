@@ -72,14 +72,14 @@ export function ChatLayout({ chat, messages, onBack}: ChatLayoutProps) {
                                 )}
                             </div>
                         )}
-                        <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                        <div className={`relative max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                             message.user === 'me' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
                                 <p>{message.message}</p>
                                 <p className="text-xs mt-1 opacity-70">
                                     {message.timestamp}
                                 </p>
                                 {message.isHearted && ( // Display heart icon if message is hearted
-                                    <Heart className="text-red-500 h-4 w-4 mt-1" />
+                                    <Heart className="text-red-500 h-5 w-5 absolute -bottom-2.5 ml-3  transform -translate-x-1/2" />
                                 )}
                         </div>
                         {message.user === 'me' && (
