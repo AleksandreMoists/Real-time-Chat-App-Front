@@ -5,6 +5,7 @@ export interface ChatMessageProps {
     avatar: string;
     isOnline: boolean;
     seen: boolean;
+    isHearted: boolean;
 }
 
 export interface ChatItem {
