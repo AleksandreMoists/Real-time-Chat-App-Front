@@ -9,15 +9,10 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Switch } from '@/components/ui/switch';
 import { BellRing } from 'lucide-react';
 import React, { useState } from 'react';
-import { chatsItems } from '@/lib/data';
+import { chatsItems, friendsItems } from '@/lib/data';
 
 export default function HomePage() {
     const [activeMenu, setActiveMenu] = useState("Chats");
-  
-    const friendsItems = [
-      { name: "Friend 1", status: "Online" },
-      { name: "Friend 2", status: "Offline" },
-    ];
   
     const settingsItems = [
       { option: "Privacy", description: "Manage privacy settings" },
@@ -53,7 +48,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <Button variant="outline" size="sm">
-                      {item.status === "Online" ? "Message" : "Add Friend"}
+                      {item.pending ? "Add Friend" : "Remove Friend"}
                     </Button>
                   </div>
                 )}

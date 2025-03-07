@@ -1,4 +1,4 @@
-import { ChatItem, ChatMessageProps } from '../types';
+import { ChatItem, ChatMessageProps, FriendsProps } from '../types';
 
 export const chatsItems: ChatItem[] = [
   { 
@@ -25,7 +25,8 @@ export const mockMessages: ChatMessageProps[] = [
     user: "Aleksandre Moistsrapishvili",
     avatar: "",
     isOnline: true,
-    seen: true
+    seen: true,
+    isHearted: false
   },
   {
     message: "I'm good, thanks!",
@@ -33,6 +34,34 @@ export const mockMessages: ChatMessageProps[] = [
     user: "me",
     avatar: "",
     isOnline: true,
-    seen: true
+    seen: true,
+    isHearted: false
   }
+];
+
+export const friendsItems: FriendsProps[] = [
+  {
+    id: 1,
+    name: "Aleksandre",
+    lastname: "Moistsrapishvili",
+    avatar: "",
+    status: "Online",
+    pending: false,
+  },
+  {
+    id: 2,
+    name: "John",
+    lastname: "Doe",
+    avatar: "",
+    status: "Offline",
+    pending: true,
+  },
+  {
+    id: 3,
+    name: "John",
+    lastname: "Doe",
+    avatar: "",
+    status: "Offline",
+    pending: true
+  },
 ];
