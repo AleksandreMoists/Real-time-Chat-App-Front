@@ -30,7 +30,8 @@ export const AuthForm = () => {
     defaultValues: {
       email: "",
       password: "",
-      username: ""
+      firstName: "",
+      lastName: "",
     },
     mode: "onSubmit",
     reValidateMode: "onSubmit",
@@ -39,7 +40,12 @@ export const AuthForm = () => {
 
   const toggleMode = () => {
     setMode(prev => prev === "login" ? "register" : "login")
-    form.reset()
+    form.reset({
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+    })
   }
 
   const onSubmit = async (data: AuthFormData) => {
@@ -71,24 +77,44 @@ export const AuthForm = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             {mode === "register" && (
-              <FormField
-                control={form.control}
-                name="username"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="block text-sm font-medium leading-6 text-gray-900">
-                      Username
-                    </FormLabel>
-                    <FormControl className="mt-2">
-                      <Input
-                        {...field}
-                        className="block w-full rounded-md border-0 bg-white px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <>
+                <FormField
+                  control={form.control}
+                  name="firstName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="block text-sm font-medium leading-6 text-gray-900">
+                        First Name
+                      </FormLabel>
+                      <FormControl className="mt-2">
+                        <Input
+                          {...field}
+                          className="block w-full rounded-md border-0 bg-white px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="lastName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="block text-sm font-medium leading-6 text-gray-900">
+                        Last Name
+                      </FormLabel>
+                      <FormControl className="mt-2">
+                        <Input
+                          {...field}
+                          className="block w-full rounded-md border-0 bg-white px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </>
             )}
 
             <FormField

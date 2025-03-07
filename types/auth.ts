@@ -5,7 +5,8 @@ export type AuthMode = "login" | "register"
 export interface AuthFormData {
     email: string;
     password: string;
-    username?: string;
+    firstName: string;
+    lastName: string;
 }
 
 export const loginSchema = z.object({
@@ -15,8 +16,15 @@ export const loginSchema = z.object({
 
 // types/auth.ts
 export const registerSchema = loginSchema.extend({
-    username: z.string().min(3, "Username must be at least 3 characters")
-  }).refine(data => data.username?.trim(), {
-    message: "Username is required",
-    path: ["username"]
-  })
+  firstName: z
+    .string()
+    .min(3, "First name must be at least 3 characters")
+    .trim(),
+  lastName: z
+    .string()
+    .min(3, "Last name must be at least 3 characters")
+    .trim(),
+});
+  
+
+
