@@ -39,12 +39,12 @@ export default function HomePage() {
                 renderItem={(item, index) => (
                   <div
                     key={index}
-                    className="mb-4 w-full flex justify-between items-center p-4 rounded-lg transition hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="mb-4 w-full flex justify-between items-center p-4 rounded-lg transition hover:bg-accent"
                   >
                     <div className="flex items-center gap-3">
-                      <span className={`h-2 w-2 rounded-full ${item.status === "Online" ? 'bg-green-500' : 'bg-gray-400'}`} />
+                      <span className={`h-2 w-2 rounded-full ${item.status === "Online" ? 'bg-green-500' : 'bg-muted-foreground'}`} />
                       <div>
-                        <p className="text-sm font-medium">{item.name}</p>
+                        <p className="text-sm font-medium text-foreground">{item.name}</p>
                         <p className="text-xs text-muted-foreground">{item.status}</p>
                       </div>
                     </div>
@@ -80,10 +80,10 @@ export default function HomePage() {
                     <div
                       key={index}
                       onClick={() => setSelectedSetting(item.option)}
-                      className="mb-4 w-full p-4 rounded-lg transition hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+                      className="mb-4 w-full p-4 rounded-lg transition hover:bg-accent cursor-pointer"
                     >
                       <div className="space-y-1">
-                        <p className="text-sm font-medium">{item.option}</p>
+                        <p className="text-sm font-medium text-foreground">{item.option}</p>
                         <p className="text-xs text-muted-foreground">{item.description}</p>
                       </div>
                     </div>

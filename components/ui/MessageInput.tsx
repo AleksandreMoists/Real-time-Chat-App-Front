@@ -73,7 +73,7 @@ export function MessageInput() {
                         disabled={!message.trim()}
                         className={`p-2 self-center rounded-full ${
                             message.trim()
-                              ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                              ? 'bg-[#3797F0] text-primary-foreground hover:bg-[#3797F0]/90'
                               : 'text-muted-foreground cursor-not-allowed'
                           }`}
                         >

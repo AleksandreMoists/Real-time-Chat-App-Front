@@ -26,17 +26,18 @@ export function CardLayout({ className, title, description, items, renderItem, a
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <Card className={cn("w-[380px] max-w-full h-auto mt-6 bg-gray-50", className)} {...props}>
+    <Card className={cn("w-[380px] max-w-full h-auto mt-6 bg-background", className)} {...props}>
       <CardHeader>
       <div className="flex justify-between items-center">
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-foreground">{title}</CardTitle>
         {addFriend && (
         <Button 
             onClick={() => setIsModalOpen(true)}
             variant="ghost" 
             size="icon"
+            className="hover:bg-accent hover:text-accent-foreground"
             >
-          <Plus className="h-6 w-6 dark:text-white" />
+          <Plus className="h-6 w-6" />
         </Button>
         )}
 
@@ -45,17 +46,17 @@ export function CardLayout({ className, title, description, items, renderItem, a
           onClose={() => setIsModalOpen(false)}
         />
       </div>
-      <CardDescription>{description}</CardDescription>
+      <CardDescription className="text-muted-foreground">{description}</CardDescription>
       </CardHeader>
 
       <CardContent className="grid gap-4">
-        <div>
+        <div className="space-y-4">
           {items?.map((item, index) => (
             renderItem ? renderItem(item, index) : null
           ))}
         </div>
         
-          {children}
+        {children}
       </CardContent>
     </Card>
   )

@@ -73,7 +73,7 @@ export function ChatLayout({ chat, messages, onBack}: ChatLayoutProps) {
                             </div>
                         )}
                         <div className={`relative max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                            message.user === 'me' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+                            message.user === 'me' ? 'bg-[#3797F0] text-primary-foreground' : 'bg-muted'}`}>
                                 <p>{message.message}</p>
                                 <p className="text-xs mt-1 opacity-70">
                                     {message.timestamp}

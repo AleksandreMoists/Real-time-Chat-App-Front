@@ -12,6 +12,20 @@ export default {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			  chat: {
+				DEFAULT: 'hsl(var(--chat-background))',
+				foreground: 'hsl(var(--chat-foreground))',
+				primary: 'hsl(var(--chat-primary))',
+				'primary-foreground': 'hsl(var(--chat-primary-foreground))',
+				border: 'hsl(var(--chat-border))',
+				ring: 'hsl(var(--chat-ring))',
+				message: {
+				  user: 'hsl(var(--chat-message-user))',
+				  'user-foreground': 'hsl(var(--chat-message-user-foreground))',
+				  system: 'hsl(var(--chat-message-system))',
+				  'system-foreground': 'hsl(var(--chat-message-system-foreground))',
+				},
+			  },
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -59,13 +73,13 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
